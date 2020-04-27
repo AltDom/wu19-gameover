@@ -1,4 +1,4 @@
-var curve;
+let curve;
 
 function setup() {
     createCanvas(600, 600);
