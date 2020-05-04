@@ -6,9 +6,7 @@ function setup() {
 }
 
 function draw() {
-    background(51);
     curve.update();
-    curve.show();
     if (keyIsDown(LEFT_ARROW) && keyIsDown(RIGHT_ARROW)) {
         curve.updateAngle(0)
     } else if (keyIsDown(LEFT_ARROW)) {
