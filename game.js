@@ -16,4 +16,5 @@ function draw() {
     } else {
         curve.updateAngle(0)
     }
+    curve.collision();
 }
