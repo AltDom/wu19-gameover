@@ -10,7 +10,7 @@ const createCurve = () => {
       players[i].startingY,
       players[i].leftKey,
       players[i].rightKey
-    );
+    )
   }
 };
 
