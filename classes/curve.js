@@ -5,7 +5,7 @@ class Curve {
     this.x = startingX;
     this.y = startingY;
     this.increment = 3.25;
-    this.angle = Math.PI / 2;
+    this.angle = (Math.floor((Math.random() * 8) + 1)) * Math.PI / 4;
     this.color = color;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
@@ -34,7 +34,6 @@ class Curve {
 
   collision() {
     const currentPositionColor = get(this.x, this.y);
-    // console.log(currentPositionColor[0])
 
     if (
       currentPositionColor[0] != 0 ||
