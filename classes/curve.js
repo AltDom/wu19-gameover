@@ -1,9 +1,9 @@
 'use strict';
 
 class Curve {
-  constructor(color, leftKey, rightKey) {
-    this.x = 0;
-    this.y = 0;
+  constructor(color, startingX, startingY, leftKey, rightKey) {
+    this.x = startingX;
+    this.y = startingY;
     this.increment = 3.25;
     this.angle = Math.PI / 2;
     this.color = color;
