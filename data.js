@@ -8,5 +8,6 @@ const colors = {
 };
 
 const getColor = () => {
+  
   return colors.blue;
 };
