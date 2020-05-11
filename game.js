@@ -1,11 +1,17 @@
 'use strict';
 
-let curve1;
-let curve2;
+let curves = [];
 
 const createCurve = () => {
-  curve1 = new Curve([0, 0, 255], LEFT_ARROW, RIGHT_ARROW);
-  curve2 = new Curve([0, 204, 0], 65, 68);
+  for (let i = 0; i < players.length; i++) {
+    curves[i] = new Curve(
+      players[i].color,
+      players[i].startingX,
+      players[i].startingY,
+      players[i].leftKey,
+      players[i].rightKey
+    );
+  }
 };
 
 function setup() {
@@ -15,13 +21,9 @@ function setup() {
 }
 
 function draw() {
-  curve1.update();
-  curve2.update();
-  
-
-  curve1.steering();
-  curve2.steering();
-
-  curve1.collision();
-  curve2.collision();
+  curves.forEach((curve) => {
+    curve.update();
+    curve.steering();
+    curve.collision();
+  });
 }
