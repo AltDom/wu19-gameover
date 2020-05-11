@@ -1,26 +1,42 @@
 'use strict';
 
-let curve;
+let curve1;
+let curve2;
 
 const createCurve = () => {
-  curve = new Curve();
+  curve1 = new Curve([0, 0, 255]);
+  curve2 = new Curve([0, 204, 0]);
 };
 
 function setup() {
   createCanvas(600, 600);
+  frameRate(50);
   createCurve();
 }
 
 function draw() {
-  curve.update();
+  curve1.update();
+  curve2.update();
   if (keyIsDown(LEFT_ARROW) && keyIsDown(RIGHT_ARROW)) {
-    curve.updateAngle(0);
+    curve1.updateAngle(0);
   } else if (keyIsDown(LEFT_ARROW)) {
-    curve.updateAngle((2 * Math.PI) / 90);
+    curve1.updateAngle((2 * Math.PI) / 90);
   } else if (keyIsDown(RIGHT_ARROW)) {
-    curve.updateAngle((-2 * Math.PI) / 90);
+    curve1.updateAngle((-2 * Math.PI) / 90);
   } else {
-    curve.updateAngle(0);
+    curve1.updateAngle(0);
   }
-  curve.collision();
+
+  if (keyIsDown(65) && keyIsDown(68)) {
+    curve2.updateAngle(0);
+  } else if (keyIsDown(65)) {
+    curve2.updateAngle((2 * Math.PI) / 90);
+  } else if (keyIsDown(68)) {
+    curve2.updateAngle((-2 * Math.PI) / 90);
+  } else {
+    curve2.updateAngle(0);
+  }
+
+  curve1.collision();
+  curve2.collision();
 }
