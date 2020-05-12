@@ -1,7 +1,7 @@
 'use strict';
 
 const createCurve = () => {
-  for (let i = 0; i < players.length; i++) {
+  for (let i = 0; i < playersCount; i++) {
     curves[i] = new Curve(
       players[i].color,
       players[i].startingX,
@@ -16,6 +16,7 @@ function setup() {
   createCanvas(width, height);
   frameRate(50);
   createCurve();
+  
 }
 
 function draw() {
