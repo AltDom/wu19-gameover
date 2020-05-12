@@ -7,6 +7,9 @@ const players = [
   { color: [0, 0, 255], startingX: 450, startingY: 450, leftKey: 74, rightKey: 75 }
 ];
 
+let curves = [];
+const width = 600;
+const height = 600;
 let curveCount = 0;
 let curveSectionLength = 500;
 let holeLength = 20;
