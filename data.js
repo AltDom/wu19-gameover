@@ -16,3 +16,5 @@ let holeLength = 10;
 let playersCount = 4;
 let playersRemaining;
 let gameOver = false;
+
+const btn = document.querySelector('.btn--restart');
