@@ -16,10 +16,14 @@ function setup() {
   createCanvas(width, height);
   frameRate(50);
   createCurve();
-  
+  playersRemaining = playersCount;
 }
 
 function draw() {
+  if (gameOver) {
+    noLoop();
+    return;
+  }
   curves.forEach((curve) => {
     curve.update();
     curve.steering();
