@@ -9,12 +9,18 @@ class Curve {
     this.color = color;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
-    this.gameOver = false;
+    this.stopCurve = false;
   }
 
   update() {
     // Check if curve has game over
-    if (this.gameOver) {
+    if (this.stopCurve) {
+      return;
+    }
+    // Check if curve has game over
+    if (playersRemaining === 1) {
+      gameOver = true;
+      console.log(gameOver);
       return;
     }
 
@@ -48,7 +54,7 @@ class Curve {
   }
 
   steering() {
-    if (this.gameOver) {
+    if (this.stopCurve) {
       return;
     }
     if (keyIsDown(this.leftKey) && keyIsDown(this.rightKey)) {
@@ -63,7 +69,7 @@ class Curve {
   }
 
   collision() {
-    if (this.gameOver) {
+    if (this.stopCurve) {
       return;
     }
 
@@ -73,7 +79,8 @@ class Curve {
       currentPositionColor[1] != 0 ||
       currentPositionColor[2] != 0
     ) {
-      this.gameOver = true;
+      this.stopCurve = true;
+      playersRemaining--;
     }
   }
 }
