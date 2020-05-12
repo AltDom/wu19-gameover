@@ -9,9 +9,15 @@ class Curve {
     this.color = color;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
+    this.gameOver = false;
   }
 
   update() {
+    // Check if curve has game over
+    if (this.gameOver) {
+      return;
+    }
+
     // Print the curve and make holes
     curveCount++;
     if (curveCount < curveSectionLength) {
@@ -23,24 +29,28 @@ class Curve {
     if (curveCount === curveSectionLength + holeLength) {
       curveCount = 0;
     }
+    
     // Set curve position
-    if (this.x + this.increment * Math.sin(this.angle) > 600) {
+    if (this.x + this.increment * Math.sin(this.angle) > width) {
       this.x = 0;
     } else if (this.x + this.increment * Math.sin(this.angle) < 0) {
-      this.x = 600;
+      this.x = width;
     } else {
       this.x = this.x + this.increment * Math.sin(this.angle);
     }
-    if (this.y + this.increment * Math.cos(this.angle) > 600) {
+    if (this.y + this.increment * Math.cos(this.angle) > height) {
       this.y = 0;
     } else if (this.y + this.increment * Math.cos(this.angle) < 0) {
-      this.y = 600;
+      this.y = height;
     } else {
       this.y = this.y + this.increment * Math.cos(this.angle);
     }
   }
 
   steering() {
+    if (this.gameOver) {
+      return;
+    }
     if (keyIsDown(this.leftKey) && keyIsDown(this.rightKey)) {
       this.angle = this.angle + 0;
     } else if (keyIsDown(this.leftKey)) {
@@ -53,14 +63,17 @@ class Curve {
   }
 
   collision() {
-    const currentPositionColor = get(this.x, this.y);
+    if (this.gameOver) {
+      return;
+    }
 
+    const currentPositionColor = get(this.x, this.y);
     if (
       currentPositionColor[0] != 0 ||
       currentPositionColor[1] != 0 ||
       currentPositionColor[2] != 0
     ) {
-      console.log('GAME ENDED');
+      this.gameOver = true;
     }
   }
 }
