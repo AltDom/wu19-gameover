@@ -29,3 +29,8 @@ canvas {
   z-index: 100;
 }
 
+button {
+  z-index: 3;
+ position: absolute;
+}
+
