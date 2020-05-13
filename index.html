@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Curve</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <button class="btn--restart">Restart</button>
-    <div class="game-board"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    <script src="data.js"></script>
-    <script src="functions.js"></script>
-    <script src="classes/Curve.js"></script>
-    <script src="game.js"></script>
+    <h1>Snake Pit</h1>
+    <div id="container">
+      <div class="settings-container">
+       <div class="objectives">
+         <p class="objectives__win-limit">First to reach <span>X</span> win by 2</p>
+         <p class="objectives__space-bar">Space bar to count</p>
+       </div>
+       <div class="score-board">
+         <p class="score-board__player1">Name 1</p>
+         <p class="score-board__player2">Name 1</p>
+         <p class="score-board__player3">Name 1</p>
+         <p class="score-board__player4">Name 1</p>
+       </div>
+       <button class="btn btn--new-game">New Game</button>
+      </div>
+    </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+      <script src="data.js"></script>
+      <script src="functions.js"></script>
+      <script src="classes/Curve.js"></script>
+      <script src="game.js"></script>
   </body>
 </html>
