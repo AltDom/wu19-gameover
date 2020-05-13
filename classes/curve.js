@@ -20,8 +20,10 @@ class Curve {
     }
     // Check if curve has game over
     if (currentPlayers.length === 1) {
+      const winningPlayer = players.find(player => player.id === currentPlayers[0].id)
+      winningPlayer.score++;
+      console.log(players);
       gameOver = true;
-      console.log(gameOver);
       return;
     }
 
@@ -82,9 +84,7 @@ class Curve {
       currentPositionColor[2] > 10
     ) {
       this.stopCurve = true;
-      console.log(currentPositionColor)
       currentPlayers = currentPlayers.filter(player => player.id !== this.id);
-      console.log(currentPlayers)
     }
   }
 }
