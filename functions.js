@@ -8,7 +8,8 @@ const startGame = () => {
     currentPlayers[i] = players[i];
   }
   loop();
-  createCanvas(width, height);
+  const canvas = createCanvas(width, height);
+  canvas.parent('container');
   frameRate(50);
   createCurve();
 };

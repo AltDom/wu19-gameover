@@ -13,9 +13,9 @@ const height = 600;
 let curveCount = 0;
 let curveSectionLength = 300;
 let holeLength = 10;
-let playersCount = 3;
+let playersCount = 2;
 let currentPlayers = [];
 let gameOver = false;
 
 
-const btn = document.querySelector('.btn--restart');
+const btn = document.querySelector('.btn--new-game');

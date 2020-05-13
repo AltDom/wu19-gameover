@@ -22,7 +22,9 @@ class Curve {
     if (currentPlayers.length === 1) {
       const winningPlayer = players.find(player => player.id === currentPlayers[0].id)
       winningPlayer.score++;
-      console.log(players);
+      players.forEach(player => {
+        console.log(`${player.id} - ${player.score}`);
+      });
       gameOver = true;
       return;
     }
