@@ -9,20 +9,39 @@
   </head>
 
   <body>
-    <h1>Snake Pit</h1>
-    <div id="container">
-      <div class="settings-container">
-       <div class="objectives">
-         <p class="objectives__win-limit">First to reach <span>X</span> win by 2</p>
-         <p class="objectives__space-bar">Space bar to count</p>
-       </div>
-       <div class="score-board">
-         <p class="score-board__player1">Name 1</p>
-         <p class="score-board__player2">Name 1</p>
-         <p class="score-board__player3">Name 1</p>
-         <p class="score-board__player4">Name 1</p>
-       </div>
-       <button class="btn btn--new-game">New Game</button>
+    <div class="heading-box">
+      <h1>Snake Pit</h1>
+    </div>
+    <div class="container">
+      <div class="start-screen">
+        <h2>Choose players</h2>
+        <div class="player-numbers">
+          <button class="btn btn--two-players">2</button>
+          <button class="btn btn--three-players">3</button>
+          <button class="btn btn--four-players">4</button>
+        </div>
+        <form class="player-form">
+          <input type="text" class="player-form__player1" placeholder="Player 1">
+          <input type="text" class="player-form__player2" placeholder="Player 2">
+          <input type="text" class="player-form__player3" placeholder="Player 3">
+          <input type="text" class="player-form__player4" placeholder="Player 4">
+          <button class="btn btn--start">Start</button>
+        </form>
+      </div>
+      <div id="game-screen">
+        <div class="settings">
+        <div class="objectives">
+          <p class="objectives__win-limit">First to reach <span>X</span> win by 2</p>
+          <p class="objectives__space-bar">Space bar to count</p>
+        </div>
+        <div class="score-board">
+          <p class="score-board__player1">Name 1</p>
+          <p class="score-board__player2">Name 1</p>
+          <p class="score-board__player3">Name 1</p>
+          <p class="score-board__player4">Name 1</p>
+        </div>
+        <button class="btn btn--new-game">New Game</button>
+        </div>
       </div>
     </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>

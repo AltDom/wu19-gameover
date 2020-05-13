@@ -9,7 +9,7 @@ const startGame = () => {
   }
   loop();
   const canvas = createCanvas(width, height);
-  canvas.parent('container');
+  canvas.parent('game-screen');
   frameRate(50);
   createCurve();
 };

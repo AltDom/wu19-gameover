@@ -22,20 +22,68 @@ body {
   line-height: 1.7;
 }
 
-h1 {
-  color: white;
-  margin: 80px 0;
-}
-
-
-#container {
+.container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 900px;
+  height: 85vh;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+.heading-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: 15vh;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
 }
 
-.settings-container div {
+.player-numbers {
+  margin: 20px 0;
+}
+
+.player-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.player-form input {
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  padding: 10px;
+  margin: 8px 0;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.btn--start {
+  margin: 20px 0;
+}
+
+#game-screen {
+  display: none;
+  justify-content: center;
+  height: 100%;
+}
+
+.settings div {
   padding-bottom: 60px;
 }
 
