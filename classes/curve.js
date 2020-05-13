@@ -1,10 +1,11 @@
 'use strict';
 
 class Curve {
-  constructor(color, startingX, startingY, leftKey, rightKey) {
+  constructor(color, startingX, startingY, leftKey, rightKey, id) {
+    this.id = id
     this.x = startingX;
     this.y = startingY;
-    this.increment = 3.25;
+    this.increment = 3.4;
     this.angle = (Math.floor(Math.random() * 8 + 1) * Math.PI) / 4;
     this.color = color;
     this.leftKey = leftKey;
@@ -18,7 +19,7 @@ class Curve {
       return;
     }
     // Check if curve has game over
-    if (playersRemaining === 1) {
+    if (currentPlayers.length === 1) {
       gameOver = true;
       console.log(gameOver);
       return;
@@ -74,13 +75,16 @@ class Curve {
     }
 
     const currentPositionColor = get(this.x, this.y);
+    
     if (
-      currentPositionColor[0] != 0 ||
-      currentPositionColor[1] != 0 ||
-      currentPositionColor[2] != 0
+      currentPositionColor[0] > 10 ||
+      currentPositionColor[1] > 10 ||
+      currentPositionColor[2] > 10
     ) {
       this.stopCurve = true;
-      playersRemaining--;
+      console.log(currentPositionColor)
+      currentPlayers = currentPlayers.filter(player => player.id !== this.id);
+      console.log(currentPlayers)
     }
   }
 }
