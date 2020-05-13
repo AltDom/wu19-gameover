@@ -9,6 +9,7 @@ function setup() {
 function draw() {
   if (gameOver) {
     noLoop();
+    return;
   }
   
   curves.forEach((curve) => {

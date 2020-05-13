@@ -4,7 +4,9 @@ const startGame = () => {
   gameOver = false;
   curveCount = 0;
   curves = [];
-  playersRemaining = playersCount;
+  for (let i = 0; i < playersCount; i++) {
+    currentPlayers[i] = players[i];
+  }
   loop();
   createCanvas(width, height);
   frameRate(50);
@@ -18,7 +20,8 @@ const createCurve = () => {
       players[i].startingX,
       players[i].startingY,
       players[i].leftKey,
-      players[i].rightKey
+      players[i].rightKey,
+      players[i].id
     );
   }
 };
