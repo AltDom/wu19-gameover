@@ -20,10 +20,8 @@ class Curve {
     }
     // Check if curve has game over
     if (currentPlayers.length === 1) {
-      const winningPlayer = players.find(player => player.id === currentPlayers[0].id)
+      winningPlayer = players.find(player => player.id === currentPlayers[0].id)
       winningPlayer.score++;
-      players.forEach(player => {
-      });
       gameOver = true;
       return;
     }

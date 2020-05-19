@@ -7,7 +7,7 @@ const scoreBoard = document.querySelector('.score-board');
 const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.getElementById('game-screen');
 const winLimit = document.querySelector('.objectives__win-limit span');
-let inputEls, inputElsArray;
+let inputEls, inputElsArray, winningPlayer; 
 
 const startGame = () => {
   gameOver = false;
@@ -49,12 +49,12 @@ const choosePlayers = (e) => {
   }
   const numberRoundsInput = `
     <p>First to reach 
-      <input type="text" class="number-rounds" 
+      <input type="text" class="player-form__rounds" 
       value="10" autocomplete="off"> 
     rounds</p>
   `;
   playerForm.innerHTML += numberRoundsInput;
-  
+
   createStartButton();
 };
 
@@ -82,14 +82,40 @@ const createStartButton = () => {
 const createScoreBoard = (e) => {
   e.preventDefault();
   inputElsArray.forEach((input, i) => {
-
-    const p = `<p class="score-board__player${i+1}">${input.value}: 0</p>`;
-    scoreBoard.innerHTML += p; 
+    const p = `<p class="score-board__player${i + 1}">${input.value}: <span>0</span></p>`;
+    scoreBoard.innerHTML += p;
   });
-  const numberRounds = document.querySelector('.number-rounds');
+  const numberRounds = document.querySelector('.player-form__rounds');
   winLimit.textContent = `${numberRounds.value}`;
-  startScreen.style.display = "none";
-  gameScreen.style.display = "flex";
+  startScreen.style.display = 'none';
+  gameScreen.style.display = 'flex';
+};
+
+const updateScoreBoard = () => {
+  const playerScoreSpan = document.querySelector(`.score-board__player${winningPlayer.id} span`);
+  playerScoreSpan.textContent = winningPlayer.score;
+  if (gameIsFinished()) {
+      celebrateWinner(winningPlayer);
+  }
+}
+
+const gameIsFinished = () => {
+   const loosingPlayers = players.filter(
+     (player) => player.id !== winningPlayer.id
+   );
+   const hasWonByTwo = (el) => el.score + 2 <= winningPlayer.score;
+   if (
+     winningPlayer.score >= winLimit.textContent &&
+     loosingPlayers.every(hasWonByTwo)
+   ) {
+     return true;
+   }
+}
+
+const celebrateWinner = (winningPlayer) => {
+  const playerName = document.querySelector(`.score-board__player${winningPlayer.id}`)
+  .textContent.split(":")[0];
+  console.log(playerName);
 }
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));
