@@ -6,10 +6,12 @@ if(btnNewGame) {
 
 function setup() {
   startGame();
+  noLoop();
 }
 
 function draw() {
   if (gameOver) {
+    updateScoreBoard();
     noLoop();
     return;
   }
