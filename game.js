@@ -1,6 +1,8 @@
 'use strict';
 
-btn.addEventListener('click', () => startGame());
+if(btnNewGame) {
+  btnNewGame.addEventListener('click', () => startGame());
+}
 
 function setup() {
   startGame();
