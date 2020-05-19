@@ -3,6 +3,11 @@
 const btnNewGame = document.querySelector('.btn--new-game');
 const playerBtns = document.querySelectorAll('.player-btns');
 const playerForm = document.querySelector('.player-form');
+const scoreBoard = document.querySelector('.score-board');
+const startScreen = document.querySelector('.start-screen');
+const gameScreen = document.getElementById('game-screen');
+const winLimit = document.querySelector('.objectives__win-limit span');
+let inputEls, inputElsArray;
 
 const startGame = () => {
   gameOver = false;
@@ -42,13 +47,21 @@ const choosePlayers = (e) => {
       `;
     playerForm.innerHTML += input;
   }
-
+  const numberRoundsInput = `
+    <p>First to reach 
+      <input type="text" class="number-rounds" 
+      value="10" autocomplete="off"> 
+    rounds</p>
+  `;
+  playerForm.innerHTML += numberRoundsInput;
+  
   createStartButton();
 };
 
 const createStartButton = () => {
-  const inputEls = playerForm.querySelectorAll('input');
-  const inputElsArray = Array.from(inputEls);
+  inputEls = playerForm.querySelectorAll('input');
+  inputElsArray = Array.from(inputEls);
+  inputElsArray.pop();
 
   inputEls.forEach((input) => {
     input.addEventListener('keyup', () => {
@@ -60,9 +73,23 @@ const createStartButton = () => {
         btnStartGame.classList.add('btn', 'btn--start-game');
         btnStartGame.textContent = 'Start Game';
         playerForm.appendChild(btnStartGame);
+        btnStartGame.addEventListener('click', createScoreBoard);
       }
     });
   });
 };
+
+const createScoreBoard = (e) => {
+  e.preventDefault();
+  inputElsArray.forEach((input, i) => {
+
+    const p = `<p class="score-board__player${i+1}">${input.value}: 0</p>`;
+    scoreBoard.innerHTML += p; 
+  });
+  const numberRounds = document.querySelector('.number-rounds');
+  winLimit.textContent = `${numberRounds.value}`;
+  startScreen.style.display = "none";
+  gameScreen.style.display = "flex";
+}
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));
