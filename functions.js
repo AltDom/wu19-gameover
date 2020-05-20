@@ -84,7 +84,9 @@ const createScoreBoard = (e) => {
   inputElsArray.forEach((input, i) => {
     const p = `<p class="score-board__player${i + 1}">${input.value}: <span>0</span></p>`;
     scoreBoard.innerHTML += p;
+    players[i].playerName = input.value; 
   });
+  console.log(players);
   const numberRounds = document.querySelector('.player-form__rounds');
   winLimit.textContent = `${numberRounds.value}`;
   startScreen.style.display = 'none';
@@ -113,9 +115,7 @@ const gameIsFinished = () => {
 }
 
 const celebrateWinner = (winningPlayer) => {
-  const playerName = document.querySelector(`.score-board__player${winningPlayer.id}`)
-  .textContent.split(":")[0];
-  console.log(playerName);
+  console.log(winningPlayer.playerName);
 }
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));

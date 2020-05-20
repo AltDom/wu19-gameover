@@ -2,7 +2,7 @@
 
 class Curve {
   constructor(color, startingX, startingY, leftKey, rightKey, id) {
-    this.id = id
+    this.id = id;
     this.x = startingX;
     this.y = startingY;
     this.increment = 3.4;
