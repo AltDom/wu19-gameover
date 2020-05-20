@@ -7,13 +7,13 @@ const scoreBoard = document.querySelector('.score-board');
 const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.getElementById('game-screen');
 const winLimit = document.querySelector('.objectives__win-limit span');
-let inputEls, inputElsArray, winningPlayer; 
+let inputEls, inputElsArray = [], winningPlayer;
 
 const startGame = () => {
   gameOver = false;
   curveCount = 0;
   curves = [];
-  for (let i = 0; i < playersCount; i++) {
+  for (let i = 0; i < inputElsArray.length; i++) {
     currentPlayers[i] = players[i];
   }
   loop();
@@ -24,7 +24,7 @@ const startGame = () => {
 };
 
 const createCurve = () => {
-  for (let i = 0; i < playersCount; i++) {
+  for (let i = 0; i < inputElsArray.length; i++) {
     curves[i] = new Curve(
       players[i].color,
       players[i].startingX,
@@ -86,9 +86,11 @@ const createScoreBoard = (e) => {
     scoreBoard.innerHTML += p;
     players[i].playerName = input.value; 
   });
-  console.log(players);
+
   const numberRounds = document.querySelector('.player-form__rounds');
   winLimit.textContent = `${numberRounds.value}`;
+  startGame(); // Initialises chosen number of curves onto the gameboard
+  noLoop();
   startScreen.style.display = 'none';
   gameScreen.style.display = 'flex';
 };
