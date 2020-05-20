@@ -4,23 +4,37 @@ const btnNewGame = document.querySelector('.btn--new-game');
 const playerBtns = document.querySelectorAll('.player-btns');
 const playerForm = document.querySelector('.player-form');
 const scoreBoard = document.querySelector('.score-board');
+const spaceBarText = document.querySelector('.objectives__space-bar');
+const objectivesDiv = document.querySelector('.objectives');
 const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.getElementById('game-screen');
 const winLimit = document.querySelector('.objectives__win-limit span');
 let inputEls, inputElsArray = [], winningPlayer;
 
-const startGame = () => {
-  gameOver = false;
+const initialiseVariables = () => {
   curveCount = 0;
   curves = [];
-  for (let i = 0; i < inputElsArray.length; i++) {
-    currentPlayers[i] = players[i];
-  }
-  loop();
   const canvas = createCanvas(width, height);
   canvas.parent('game-screen');
   frameRate(50);
   createCurve();
+}
+
+const resetGame = () => {
+  initialiseVariables();
+  for (let i = 0; i < inputElsArray.length; i++) {
+    currentPlayers[i] = players[i];
+  }
+  noLoop();
+  isReset = true;
+}
+
+const startGame = () => {
+  gameOver = false;
+  resetGame();
+  spaceBarText.style.visibility = "hidden";
+  isFirstInitialise = false;
+  loop();
 };
 
 const createCurve = () => {
@@ -89,8 +103,7 @@ const createScoreBoard = (e) => {
 
   const numberRounds = document.querySelector('.player-form__rounds');
   winLimit.textContent = `${numberRounds.value}`;
-  startGame(); // Initialises chosen number of curves onto the gameboard
-  noLoop();
+  resetGame(); // Initialises chosen number of curves onto the gameboard
   startScreen.style.display = 'none';
   gameScreen.style.display = 'flex';
 };
@@ -119,5 +132,14 @@ const gameIsFinished = () => {
 const celebrateWinner = (winningPlayer) => {
   console.log(winningPlayer.playerName);
 }
+
+const activateSpaceBar = (e) => {
+  if (e.keyCode === 32 && gameOver && isReset) {
+    startGame();
+  } 
+}
+
+window.addEventListener('keyup',  activateSpaceBar);
+
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));
