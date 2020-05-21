@@ -27,7 +27,6 @@ class Curve {
     }
 
     // Print the curve and make holes
-    curveCount++;
     if (curveCount < curveSectionLength) {
       let c = color(this.color);
       fill(c);
