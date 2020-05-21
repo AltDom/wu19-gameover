@@ -1,9 +1,5 @@
 'use strict';
 
-if(btnNewGame) {
-  btnNewGame.addEventListener('click', () => newGame());
-}
-
 function setup() {
   initialiseVariables();
   noLoop();
