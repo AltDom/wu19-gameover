@@ -44,8 +44,8 @@ const players = [
 ];
 
 let curves = [];
-const width = 800;
-const height = 800;
+const width = 700;
+const height = 700;
 let curveCount = 0;
 let curveSectionLength = 300;
 let holeLength = 10;

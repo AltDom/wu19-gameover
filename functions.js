@@ -1,6 +1,7 @@
 'use strict';
 
 const btnNewGame = document.querySelector('.btn--new-game');
+const heading = document.querySelector('.heading');
 const playerBtns = document.querySelectorAll('.player-btns');
 const playerForm = document.querySelector('.player-form');
 const scoreBoard = document.querySelector('.score-board');
@@ -110,6 +111,7 @@ const createScoreBoard = (e) => {
   winLimit.textContent = `${numberRounds.value}`;
   resetGame(); // Initialises chosen number of curves onto the gameboard
   startScreen.style.display = 'none';
+  heading.style.display = 'none';
   gameScreen.style.display = 'flex';
 };
 
@@ -153,6 +155,7 @@ const newGame = () => {
   scoreBoard.innerHTML = '';
   players.forEach(player => player.score = 0);
   startScreen.style.display = 'flex';
+  heading.style.display = 'flex';
   gameScreen.style.display = 'none';
 };
 
