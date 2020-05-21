@@ -93,6 +93,14 @@ h2 {
 
 .objectives__space-bar {
   color: #ce17f3;
+  animation: blinker 1s linear infinite;
+}
+
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 .score-board__player1 {
