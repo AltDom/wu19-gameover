@@ -1,6 +1,12 @@
 'use strict';
 
 const btnNewGame = document.querySelector('.btn--new-game');
+const btnYes = document.querySelector('.btn--yes');
+const btnNo = document.querySelector('.btn--no');
+const victoryMessage = document.querySelector('.settings__winning-text');
+const areYouSureBox = document.querySelector('.are-you-sure');
+const settingsContainer = document.querySelector('.settings');
+const heading = document.querySelector('.heading');
 const playerBtns = document.querySelectorAll('.player-btns');
 const playerForm = document.querySelector('.player-form');
 const scoreBoard = document.querySelector('.score-board');
@@ -110,6 +116,7 @@ const createScoreBoard = (e) => {
   winLimit.textContent = `${numberRounds.value}`;
   resetGame(); // Initialises chosen number of curves onto the gameboard
   startScreen.style.display = 'none';
+  heading.style.display = 'none';
   gameScreen.style.display = 'flex';
 };
 
@@ -137,15 +144,17 @@ const gameIsFinished = () => {
 };
 
 const celebrateWinner = (winningPlayer) => {
-  console.log(winningPlayer.playerName);
+  victoryMessage.textContent = `${winningPlayer.playerName} win!`;
+  victoryMessage.style.display = "block";
 };
 
 const activateSpaceBar = (e) => {
   if (e.keyCode === 32 && gameOver && isReset) {
     startGame();
   }
-  console.log(players);
 };
+
+window.addEventListener('keyup', activateSpaceBar);
 
 const newGame = () => {
   initialiseVariables();
@@ -153,11 +162,24 @@ const newGame = () => {
   scoreBoard.innerHTML = '';
   players.forEach(player => player.score = 0);
   startScreen.style.display = 'flex';
+  heading.style.display = 'flex';
   gameScreen.style.display = 'none';
+  victoryMessage.style.display = 'none';
+  notSure();
 };
 
-window.addEventListener('keyup', activateSpaceBar);
+const notSure = () => {
+  btnNewGame.style.display = "inline-block";
+  areYouSureBox.style.display = "none";
+}
 
-btnNewGame.addEventListener('click', newGame);
+const areYouSure = () => {
+  btnNewGame.style.display = "none";
+  areYouSureBox.style.display = "block";
+}
+
+btnNewGame.addEventListener('click', areYouSure);
+btnYes.addEventListener('click', newGame);
+btnNo.addEventListener('click', notSure);
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));

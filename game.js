@@ -13,10 +13,13 @@ function draw() {
     return;
   }
   
+  curveCount++;
   curves.forEach((curve) => {
     curve.update();
     curve.steering();
+    if (curveCount < curveSectionLength) {
     curve.collision();
+    }
   });
 }
 

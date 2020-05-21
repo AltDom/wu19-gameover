@@ -9,7 +9,6 @@ html,
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -26,6 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   width: 1100px;
   height: 85vh;
 
@@ -39,7 +39,7 @@ h2 {
   margin: 20px 0;
 }
 
-.heading-box {
+.heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,8 +81,8 @@ h2 {
   width: 17%;
 }
 
-.btn--start {
-  margin: 20px 0;
+.btn--start-game {
+  margin: 40px 0;
 }
 
 #game-screen {
@@ -91,11 +91,29 @@ h2 {
   height: 100%;
 }
 
+.settings div {
+  margin-bottom: 60px;
+}
+
+.btn--yes, .btn--no {
+  width: 120px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.settings {
+  padding-right: 40px;
+  text-align: center;
+}
+
 .objectives__space-bar {
   color: #ce17f3;
   animation: blinker 1s linear infinite;
 }
 
+.objectives__win-limit {
+  padding-bottom: 20px;
+}
 
 @keyframes blinker {
   50% {
@@ -119,8 +137,15 @@ h2 {
   color: rgb(0, 0, 255);
 }
 
-.settings div {
-  padding-bottom: 60px;
+.are-you-sure {
+  display: none;
+}
+
+.settings__winning-text {
+  display: none;
+  color: #ce17f3;
+  animation: blinker 1s linear infinite;
+  margin-top: 40px;
 }
 
 canvas {
@@ -138,3 +163,10 @@ canvas {
   text-transform: uppercase;
   outline: none;
 }
+
+.btn--new-game {
+  padding: 20px 40px;
+  margin-bottom: 73px;
+}
+
+
