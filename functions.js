@@ -1,6 +1,7 @@
 'use strict';
 
 const btnNewGame = document.querySelector('.btn--new-game');
+const settingsContainer = document.querySelector('.settings');
 const heading = document.querySelector('.heading');
 const playerBtns = document.querySelectorAll('.player-btns');
 const playerForm = document.querySelector('.player-form');
@@ -139,14 +140,16 @@ const gameIsFinished = () => {
 };
 
 const celebrateWinner = (winningPlayer) => {
-  console.log(winningPlayer.playerName);
+  const victoryMessage = document.createElement('p');
+  victoryMessage.classList.add('settings__winning-text');
+  victoryMessage.textContent = `${winningPlayer.playerName} win!`;
+  settingsContainer.appendChild(victoryMessage);
 };
 
 const activateSpaceBar = (e) => {
   if (e.keyCode === 32 && gameOver && isReset) {
     startGame();
   }
-  console.log(players);
 };
 
 const newGame = () => {
