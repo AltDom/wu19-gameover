@@ -9,16 +9,19 @@ const objectivesDiv = document.querySelector('.objectives');
 const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.getElementById('game-screen');
 const winLimit = document.querySelector('.objectives__win-limit span');
-let inputEls, inputElsArray = [], winningPlayer;
+let inputEls, winningPlayer;
+let inputElsArray = [];
+let currentPlayers = [];
 
 const initialiseVariables = () => {
   curveCount = 0;
+  currentPlayers = [];
   curves = [];
   const canvas = createCanvas(width, height);
   canvas.parent('game-screen');
   frameRate(48);
   createCurve();
-}
+};
 
 const resetGame = () => {
   initialiseVariables();
@@ -27,12 +30,12 @@ const resetGame = () => {
   }
   noLoop();
   isReset = true;
-}
+};
 
 const startGame = () => {
   gameOver = false;
   resetGame();
-  spaceBarText.style.visibility = "hidden";
+  spaceBarText.style.visibility = 'hidden';
   isFirstInitialise = false;
   loop();
 };
@@ -96,9 +99,11 @@ const createStartButton = () => {
 const createScoreBoard = (e) => {
   e.preventDefault();
   inputElsArray.forEach((input, i) => {
-    const p = `<p class="score-board__player${i + 1}">${input.value}: <span>0</span></p>`;
+    const p = `<p class="score-board__player${i + 1}">${
+      input.value
+    }: <span>0</span></p>`;
     scoreBoard.innerHTML += p;
-    players[i].playerName = input.value; 
+    players[i].playerName = input.value;
   });
 
   const numberRounds = document.querySelector('.player-form__rounds');
@@ -109,37 +114,50 @@ const createScoreBoard = (e) => {
 };
 
 const updateScoreBoard = () => {
-  const playerScoreSpan = document.querySelector(`.score-board__player${winningPlayer.id} span`);
+  const playerScoreSpan = document.querySelector(
+    `.score-board__player${winningPlayer.id} span`
+  );
   playerScoreSpan.textContent = winningPlayer.score;
   if (gameIsFinished()) {
-      celebrateWinner(winningPlayer);
+    celebrateWinner(winningPlayer);
   }
-}
+};
 
 const gameIsFinished = () => {
-   const loosingPlayers = players.filter(
-     (player) => player.id !== winningPlayer.id
-   );
-   const hasWonByTwo = (el) => el.score + 2 <= winningPlayer.score;
-   if (
-     winningPlayer.score >= winLimit.textContent &&
-     loosingPlayers.every(hasWonByTwo)
-   ) {
-     return true;
-   }
-}
+  const loosingPlayers = players.filter(
+    (player) => player.id !== winningPlayer.id
+  );
+  const hasWonByTwo = (el) => el.score + 2 <= winningPlayer.score;
+  if (
+    winningPlayer.score >= winLimit.textContent &&
+    loosingPlayers.every(hasWonByTwo)
+  ) {
+    return true;
+  }
+};
 
 const celebrateWinner = (winningPlayer) => {
   console.log(winningPlayer.playerName);
-}
+};
 
 const activateSpaceBar = (e) => {
   if (e.keyCode === 32 && gameOver && isReset) {
     startGame();
-  } 
-}
+  }
+  console.log(players);
+};
 
-window.addEventListener('keyup',  activateSpaceBar);
+const newGame = () => {
+  initialiseVariables();
+  playerForm.innerHTML = '';
+  scoreBoard.innerHTML = '';
+  players.forEach(player => player.score = 0);
+  startScreen.style.display = 'flex';
+  gameScreen.style.display = 'none';
+};
 
+window.addEventListener('keyup', activateSpaceBar);
+
+btnNewGame.addEventListener('click', newGame);
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));

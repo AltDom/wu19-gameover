@@ -49,7 +49,6 @@ const height = 800;
 let curveCount = 0;
 let curveSectionLength = 300;
 let holeLength = 10;
-let currentPlayers = [];
 let gameOver = true;
 let isFirstInitialise = true;
 let isReset = false;
