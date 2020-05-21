@@ -63,7 +63,6 @@ h2 {
   width: 430px;
 }
 
-
 .player-form input {
   font-family: 'Press Start 2P', cursive;
   font-size: 16px;
@@ -89,6 +88,22 @@ h2 {
   display: none;
   justify-content: center;
   height: 100%;
+}
+
+.score-board__player1 {
+  color: rgb(255, 204, 0);
+}
+
+.score-board__player2 {
+  color: rgb(255, 0, 0);
+}
+
+.score-board__player3 {
+  color: rgb(0, 204, 0);
+}
+
+.score-board__player4 {
+  color: rgb(0, 0, 255);
 }
 
 .settings div {

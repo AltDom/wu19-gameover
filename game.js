@@ -1,17 +1,18 @@
 'use strict';
 
 if(btnNewGame) {
-  btnNewGame.addEventListener('click', () => startGame());
+  btnNewGame.addEventListener('click', () => newGame());
 }
 
 function setup() {
-  startGame();
+  initialiseVariables();
   noLoop();
 }
 
 function draw() {
-  if (gameOver) {
+  if (gameOver && !isFirstInitialise) {
     updateScoreBoard();
+    spaceBarText.style.visibility = "visible";
     noLoop();
     return;
   }
