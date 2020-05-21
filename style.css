@@ -81,8 +81,8 @@ h2 {
   width: 17%;
 }
 
-.btn--start {
-  margin: 20px 0;
+.btn--start-game {
+  margin: 40px 0;
 }
 
 #game-screen {
@@ -91,12 +91,18 @@ h2 {
   height: 100%;
 }
 
-.settings div, .settings .btn {
+.settings div {
   margin-bottom: 60px;
 }
 
+.btn--yes, .btn--no {
+  width: 120px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .settings {
-  padding-right: 20px;
+  padding-right: 40px;
   text-align: center;
 }
 
@@ -131,9 +137,15 @@ h2 {
   color: rgb(0, 0, 255);
 }
 
+.are-you-sure {
+  display: none;
+}
+
 .settings__winning-text {
+  display: none;
   color: #ce17f3;
   animation: blinker 1s linear infinite;
+  margin-top: 40px;
 }
 
 canvas {
@@ -154,4 +166,7 @@ canvas {
 
 .btn--new-game {
   padding: 20px 40px;
+  margin-bottom: 73px;
 }
+
+

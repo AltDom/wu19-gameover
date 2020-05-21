@@ -1,6 +1,10 @@
 'use strict';
 
 const btnNewGame = document.querySelector('.btn--new-game');
+const btnYes = document.querySelector('.btn--yes');
+const btnNo = document.querySelector('.btn--no');
+const victoryMessage = document.querySelector('.settings__winning-text');
+const areYouSureBox = document.querySelector('.are-you-sure');
 const settingsContainer = document.querySelector('.settings');
 const heading = document.querySelector('.heading');
 const playerBtns = document.querySelectorAll('.player-btns');
@@ -140,10 +144,8 @@ const gameIsFinished = () => {
 };
 
 const celebrateWinner = (winningPlayer) => {
-  const victoryMessage = document.createElement('p');
-  victoryMessage.classList.add('settings__winning-text');
   victoryMessage.textContent = `${winningPlayer.playerName} win!`;
-  settingsContainer.appendChild(victoryMessage);
+  victoryMessage.style.display = "block";
 };
 
 const activateSpaceBar = (e) => {
@@ -151,6 +153,8 @@ const activateSpaceBar = (e) => {
     startGame();
   }
 };
+
+window.addEventListener('keyup', activateSpaceBar);
 
 const newGame = () => {
   initialiseVariables();
@@ -160,10 +164,22 @@ const newGame = () => {
   startScreen.style.display = 'flex';
   heading.style.display = 'flex';
   gameScreen.style.display = 'none';
+  victoryMessage.style.display = 'none';
+  notSure();
 };
 
-window.addEventListener('keyup', activateSpaceBar);
+const notSure = () => {
+  btnNewGame.style.display = "inline-block";
+  areYouSureBox.style.display = "none";
+}
 
-btnNewGame.addEventListener('click', newGame);
+const areYouSure = () => {
+  btnNewGame.style.display = "none";
+  areYouSureBox.style.display = "block";
+}
+
+btnNewGame.addEventListener('click', areYouSure);
+btnYes.addEventListener('click', newGame);
+btnNo.addEventListener('click', notSure);
 
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));
