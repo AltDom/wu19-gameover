@@ -15,7 +15,7 @@ const objectivesDiv = document.querySelector('.objectives');
 const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.getElementById('game-screen');
 const winLimit = document.querySelector('.objectives__win-limit span');
-let inputEls, winningPlayer;
+let inputEls, winningPlayer, numberRounds;
 let inputElsArray = [];
 let currentPlayers = [];
 
@@ -23,6 +23,10 @@ const initialiseVariables = () => {
   curveCount = 0;
   currentPlayers = [];
   curves = [];
+  playerBtns.forEach(btn => {
+    btn.style.background = '#FFF';
+    btn.style.color = '#000';
+  })
   const canvas = createCanvas(width, height);
   canvas.parent('game-screen');
   frameRate(48);
@@ -60,6 +64,13 @@ const createCurve = () => {
 };
 
 const choosePlayers = (e) => {
+  playerBtns.forEach(btn => {
+    btn.style.background = "#fff";
+    btn.style.color="#000"
+  })
+  e.target.style.background = '#ce17f3';
+  e.target.style.color = "#fff"
+
   playerForm.innerHTML = '';
   const playerNumbers = parseInt(e.target.dataset.numPlayers);
 
@@ -75,9 +86,11 @@ const choosePlayers = (e) => {
       <input type="text" class="player-form__rounds" 
       value="10" autocomplete="off"> 
     rounds</p>
-  `;
+  `;  
   playerForm.innerHTML += numberRoundsInput;
-
+  
+  numberRounds = document.querySelector('.player-form__rounds');
+  numberRounds.addEventListener('click', (e) => e.target.value = "");
   createStartButton();
 };
 
@@ -112,7 +125,6 @@ const createScoreBoard = (e) => {
     players[i].playerName = input.value;
   });
 
-  const numberRounds = document.querySelector('.player-form__rounds');
   winLimit.textContent = `${numberRounds.value}`;
   resetGame(); // Initialises chosen number of curves onto the gameboard
   startScreen.style.display = 'none';
