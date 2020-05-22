@@ -19,6 +19,7 @@ body {
   position: relative;
   text-transform: uppercase;
   line-height: 1.7;
+  user-select: none;
 }
 
 .container {
@@ -28,7 +29,6 @@ body {
   margin-top: 20px;
   width: 1100px;
   height: 85vh;
-
 }
 
 h1 {
@@ -91,18 +91,31 @@ h2 {
   height: 100%;
 }
 
+.settings {
+  padding-right: 40px;
+  text-align: center;
+}
+
 .settings div {
   margin-bottom: 60px;
 }
 
-.btn--yes, .btn--no {
-  width: 120px;
-  margin-top: 20px;
-  text-align: center;
+.game-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 73px;
 }
 
-.settings {
-  padding-right: 40px;
+.game-btns .btn--new-game, 
+.game-btns .btn--restart {
+  width: 155px;
+  padding: 10px; 
+}
+
+.btn--yes,
+.btn--no {
+  width: 120px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -139,6 +152,7 @@ h2 {
 
 .are-you-sure {
   display: none;
+  width: 320px;
 }
 
 .settings__winning-text {
@@ -163,10 +177,3 @@ canvas {
   text-transform: uppercase;
   outline: none;
 }
-
-.btn--new-game {
-  padding: 20px 40px;
-  margin-bottom: 73px;
-}
-
-

@@ -1,6 +1,8 @@
 'use strict';
 
 const btnNewGame = document.querySelector('.btn--new-game');
+const gameBtns = document.querySelector('.game-btns');
+const btnRestart = document.querySelector('.btn--restart');
 const btnYes = document.querySelector('.btn--yes');
 const btnNo = document.querySelector('.btn--no');
 const victoryMessage = document.querySelector('.settings__winning-text');
@@ -23,10 +25,10 @@ const initialiseVariables = () => {
   curveCount = 0;
   currentPlayers = [];
   curves = [];
-  playerBtns.forEach(btn => {
+  playerBtns.forEach((btn) => {
     btn.style.background = '#FFF';
     btn.style.color = '#000';
-  })
+  });
   const canvas = createCanvas(width, height);
   canvas.parent('game-screen');
   frameRate(48);
@@ -64,12 +66,12 @@ const createCurve = () => {
 };
 
 const choosePlayers = (e) => {
-  playerBtns.forEach(btn => {
-    btn.style.background = "#fff";
-    btn.style.color="#000"
-  })
+  playerBtns.forEach((btn) => {
+    btn.style.background = '#fff';
+    btn.style.color = '#000';
+  });
   e.target.style.background = '#ce17f3';
-  e.target.style.color = "#fff"
+  e.target.style.color = '#fff';
 
   playerForm.innerHTML = '';
   const playerNumbers = parseInt(e.target.dataset.numPlayers);
@@ -86,11 +88,11 @@ const choosePlayers = (e) => {
       <input type="text" class="player-form__rounds" 
       value="10" autocomplete="off"> 
     rounds</p>
-  `;  
+  `;
   playerForm.innerHTML += numberRoundsInput;
-  
+
   numberRounds = document.querySelector('.player-form__rounds');
-  numberRounds.addEventListener('click', (e) => e.target.value = "");
+  numberRounds.addEventListener('click', (e) => (e.target.value = ''));
   createStartButton();
 };
 
@@ -157,7 +159,7 @@ const gameIsFinished = () => {
 
 const celebrateWinner = (winningPlayer) => {
   victoryMessage.textContent = `${winningPlayer.playerName} win!`;
-  victoryMessage.style.display = "block";
+  victoryMessage.style.display = 'block';
 };
 
 const activateSpaceBar = (e) => {
@@ -172,7 +174,7 @@ const newGame = () => {
   initialiseVariables();
   playerForm.innerHTML = '';
   scoreBoard.innerHTML = '';
-  players.forEach(player => player.score = 0);
+  players.forEach((player) => (player.score = 0));
   startScreen.style.display = 'flex';
   heading.style.display = 'flex';
   gameScreen.style.display = 'none';
@@ -181,17 +183,34 @@ const newGame = () => {
 };
 
 const notSure = () => {
-  btnNewGame.style.display = "inline-block";
-  areYouSureBox.style.display = "none";
-}
+  gameBtns.style.display = "flex";
+  areYouSureBox.style.display = 'none';
+};
 
-const areYouSure = () => {
-  btnNewGame.style.display = "none";
-  areYouSureBox.style.display = "block";
-}
+const areYouSure = (btnType) => {
+  if (btnType === btnNewGame) {
+    areYouSureBox.querySelector('span').textContent = 'start a new';
+  } else if (btnType === btnRestart) {
+    areYouSureBox.querySelector('span').textContent = 'restart the';
+  }
+  btnYes.dataset.mode = btnType.textContent;
+  gameBtns.style.display = 'none';
+  areYouSureBox.style.display = 'inline-block';
+};
 
-btnNewGame.addEventListener('click', areYouSure);
-btnYes.addEventListener('click', newGame);
+const restartGame = () => {
+  resetGame();
+  players.forEach((player) => (player.score = 0));
+  victoryMessage.style.display = 'none';
+  const scores = scoreBoard.querySelectorAll('span');
+  scores.forEach((score) => (score.textContent = 0));
+  notSure();
+};
+
+btnNewGame.addEventListener('click', (e) => areYouSure(e.target));
+btnRestart.addEventListener('click', (e) => areYouSure(e.target));
+btnYes.addEventListener('click', () => {
+  btnYes.dataset.mode === btnNewGame.textContent ? newGame() : restartGame();
+});
 btnNo.addEventListener('click', notSure);
-
 playerBtns.forEach((btn) => btn.addEventListener('click', choosePlayers));
