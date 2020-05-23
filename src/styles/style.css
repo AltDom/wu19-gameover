@@ -22,6 +22,14 @@ body {
   user-select: none;
 }
 
+:root {
+  --yellow-color: rgb(255, 204, 0);
+  --red-color: rgb(255, 0, 0);
+  --green-color: rgb(0, 204, 0);
+  --blue-color: rgb(0, 0, 255);
+  --purple-color: #ce17f3;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -39,132 +47,7 @@ h2 {
   margin: 20px 0;
 }
 
-.heading {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: auto;
-  height: 15vh;
-  margin-top: 60px;
-}
-
-.start-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-.player-numbers {
-  margin: 20px 0;
-}
-
-.player-form {
-  display: flex;
-  flex-direction: column;
-  width: 430px;
-}
-
-.player-form input {
-  font-family: "Press Start 2P", cursive;
-  font-size: 16px;
-  padding: 10px;
-  margin: 8px 0;
-  outline: none;
-  text-transform: uppercase;
-}
-
-.player-form__player {
-  width: 100%;
-}
-
-.player-form__rounds {
-  width: 17%;
-}
-
-.btn--start-game {
-  margin: 40px 0;
-}
-
-#game-screen {
-  display: none;
-  justify-content: center;
-  height: 100%;
-}
-
-.settings {
-  padding-right: 40px;
-  text-align: center;
-}
-
-.settings div {
-  margin-bottom: 60px;
-}
-
-.game-btns {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 73px;
-}
-
-.game-btns .btn--new-game,
-.game-btns .btn--restart {
-  width: 155px;
-  padding: 10px;
-}
-
-.btn--yes,
-.btn--no {
-  width: 120px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.objectives__space-bar {
-  color: #ce17f3;
-  animation: blinker 1s linear infinite;
-}
-
-.objectives__win-limit {
-  padding-bottom: 20px;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-.score-board__player1 {
-  color: rgb(255, 204, 0);
-}
-
-.score-board__player2 {
-  color: rgb(255, 0, 0);
-}
-
-.score-board__player3 {
-  color: rgb(0, 204, 0);
-}
-
-.score-board__player4 {
-  color: rgb(0, 0, 255);
-}
-
-.are-you-sure {
-  display: none;
-  width: 320px;
-}
-
-.settings__winning-text {
-  display: none;
-  color: #ce17f3;
-  animation: blinker 1s linear infinite;
-  margin-top: 40px;
-}
-
 canvas {
-  z-index: 100;
   border: 3px solid white;
 }
 

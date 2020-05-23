@@ -1,0 +1,46 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: 15vh;
+  margin-top: 60px;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.player-numbers {
+  margin: 20px 0;
+}
+
+.player-form {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+}
+
+.player-form input {
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  padding: 10px;
+  margin: 8px 0;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.player-form__player {
+  width: 100%;
+}
+
+.player-form__rounds {
+  width: 17%;
+}
+
+.btn--start-game {
+  margin: 40px 0;
+}
