@@ -179,6 +179,9 @@ const newGame = () => {
   heading.style.display = 'flex';
   gameScreen.style.display = 'none';
   victoryMessage.style.display = 'none';
+  spaceBarText.style.visibility = 'visible';
+  isFirstInitialise = true;
+  gameOver = true;
   notSure();
 };
 
@@ -204,6 +207,9 @@ const restartGame = () => {
   victoryMessage.style.display = 'none';
   const scores = scoreBoard.querySelectorAll('span');
   scores.forEach((score) => (score.textContent = 0));
+  spaceBarText.style.visibility = 'visible';
+  isFirstInitialise = true;
+  gameOver = true;
   notSure();
 };
 
