@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let curves = [];
 const width = 700;
@@ -10,13 +10,12 @@ let gameOver = true;
 let isFirstInitialise = true;
 let isReset = false;
 
-
 const players = [
   {
     id: 1,
     score: 0,
     color: [255, 204, 0],
-    playerName: '',
+    playerName: "",
     startingX: width / 4,
     startingY: height / 4,
     leftKey: 65,
@@ -26,8 +25,8 @@ const players = [
     id: 2,
     score: 0,
     color: [255, 0, 0],
-    playerName: '',
-    startingX: 3 * width / 4,
+    playerName: "",
+    startingX: (3 * width) / 4,
     startingY: height / 4,
     leftKey: 37,
     rightKey: 39,
@@ -36,9 +35,9 @@ const players = [
     id: 3,
     score: 0,
     color: [0, 204, 0],
-    playerName: '',
+    playerName: "",
     startingX: width / 4,
-    startingY: 3 * height / 4,
+    startingY: (3 * height) / 4,
     leftKey: 70,
     rightKey: 71,
   },
@@ -46,13 +45,10 @@ const players = [
     id: 4,
     score: 0,
     color: [0, 0, 255],
-    playerName: '',
-    startingX: 3 * width / 4,
-    startingY: 3 * height / 4,
+    playerName: "",
+    startingX: (3 * width) / 4,
+    startingY: (3 * height) / 4,
     leftKey: 74,
     rightKey: 75,
   },
 ];
-
-
-
