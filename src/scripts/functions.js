@@ -168,8 +168,6 @@ const activateSpaceBar = (e) => {
   }
 };
 
-window.addEventListener("keyup", activateSpaceBar);
-
 const newGame = () => {
   initialiseVariables();
   playerForm.innerHTML = "";
@@ -213,6 +211,7 @@ const restartGame = () => {
   notSure();
 };
 
+window.addEventListener("keyup", activateSpaceBar);
 btnNewGame.addEventListener("click", (e) => areYouSure(e.target));
 btnRestart.addEventListener("click", (e) => areYouSure(e.target));
 btnYes.addEventListener("click", () => {

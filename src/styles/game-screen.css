@@ -70,7 +70,7 @@
 
 .settings__winning-text {
   display: none;
-  color: var(--pruple-color);
+  color: var(--purple-color);
   animation: blinker 1s linear infinite;
   margin-top: 40px;
 }
