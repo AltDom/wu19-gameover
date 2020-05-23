@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function setup() {
   initialiseVariables();
@@ -12,14 +12,13 @@ function draw() {
     noLoop();
     return;
   }
-  
+
   curveCount++;
   curves.forEach((curve) => {
     curve.update();
     curve.steering();
     if (curveCount < curveSectionLength) {
-    curve.collision();
+      curve.collision();
     }
   });
 }
-

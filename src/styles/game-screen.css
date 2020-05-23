@@ -1,0 +1,76 @@
+#game-screen {
+  display: none;
+  justify-content: center;
+  height: 100%;
+}
+
+.settings {
+  padding-right: 40px;
+  text-align: center;
+}
+
+.settings div {
+  margin-bottom: 60px;
+}
+
+.game-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 73px;
+}
+
+.game-btns .btn--new-game,
+.game-btns .btn--restart {
+  width: 155px;
+  padding: 10px;
+}
+
+.btn--yes,
+.btn--no {
+  width: 120px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.objectives__space-bar {
+  color: var(--purple-color);
+  animation: blinker 1s linear infinite;
+}
+
+.objectives__win-limit {
+  padding-bottom: 20px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.score-board__player1 {
+  color: var(--yellow-color);
+}
+
+.score-board__player2 {
+  color: var(--red-color);
+}
+
+.score-board__player3 {
+  color: var(--green-color);
+}
+
+.score-board__player4 {
+  color: var(--blue-color);
+}
+
+.are-you-sure {
+  display: none;
+  width: 320px;
+}
+
+.settings__winning-text {
+  display: none;
+  color: var(--purple-color);
+  animation: blinker 1s linear infinite;
+  margin-top: 40px;
+}

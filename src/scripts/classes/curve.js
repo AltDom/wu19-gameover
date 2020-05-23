@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Curve {
   constructor(color, startingX, startingY, leftKey, rightKey, id) {
@@ -20,7 +20,9 @@ class Curve {
     }
     // Check if curve has game over
     if (currentPlayers.length === 1) {
-      winningPlayer = players.find(player => player.id === currentPlayers[0].id)
+      winningPlayer = players.find(
+        (player) => player.id === currentPlayers[0].id
+      );
       winningPlayer.score++;
       gameOver = true;
       return;
@@ -36,7 +38,7 @@ class Curve {
     if (curveCount === curveSectionLength + holeLength) {
       curveCount = 0;
     }
-    
+
     // Set curve position
     if (this.x + this.increment * Math.sin(this.angle) > width) {
       this.x = 0;
@@ -75,14 +77,14 @@ class Curve {
     }
 
     const currentPositionColor = get(this.x, this.y);
-    
+
     if (
       currentPositionColor[0] > 10 ||
       currentPositionColor[1] > 10 ||
       currentPositionColor[2] > 10
     ) {
       this.stopCurve = true;
-      currentPlayers = currentPlayers.filter(player => player.id !== this.id);
+      currentPlayers = currentPlayers.filter((player) => player.id !== this.id);
     }
   }
 }
