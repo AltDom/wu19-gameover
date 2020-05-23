@@ -8,8 +8,10 @@ function setup() {
 function draw() {
   if (gameOver && !isFirstInitialise) {
     updateScoreBoard();
-    spaceBarText.style.visibility = "visible";
     noLoop();
+    if (!roundOver) {
+      spaceBarText.style.visibility = "visible";
+    }
     return;
   }
 

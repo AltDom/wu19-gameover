@@ -23,6 +23,7 @@ let currentPlayers = [];
 
 const initialiseVariables = () => {
   curveCount = 0;
+  roundOver = false;
   currentPlayers = [];
   curves = [];
   playerBtns.forEach((btn) => {
@@ -140,6 +141,7 @@ const updateScoreBoard = () => {
   );
   playerScoreSpan.textContent = winningPlayer.score;
   if (gameIsFinished()) {
+    roundOver = true;
     celebrateWinner(winningPlayer);
   }
 };
@@ -163,7 +165,7 @@ const celebrateWinner = (winningPlayer) => {
 };
 
 const activateSpaceBar = (e) => {
-  if (e.keyCode === 32 && gameOver && isReset) {
+  if (e.keyCode === 32 && gameOver && isReset && !roundOver) {
     startGame();
   }
 };

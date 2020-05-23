@@ -7,6 +7,7 @@ let curveCount = 0;
 let curveSectionLength = 100;
 let holeLength = 8;
 let gameOver = true;
+let roundOver = false;
 let isFirstInitialise = true;
 let isReset = false;
 
