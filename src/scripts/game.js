@@ -6,10 +6,10 @@ function setup() {
 }
 
 function draw() {
-  if (gameOver && !isFirstInitialise) {
+  if (roundOver && !isFirstInitialise) {
     updateScoreBoard();
     noLoop();
-    if (!roundOver) {
+    if (!gameOver) {
       spaceBarText.style.visibility = "visible";
     }
     return;

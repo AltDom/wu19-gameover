@@ -11,6 +11,7 @@
 
 .settings div {
   margin-bottom: 60px;
+  width: 360px;
 }
 
 .game-btns {
@@ -65,12 +66,13 @@
 
 .are-you-sure {
   display: none;
-  width: 320px;
+  width: 360px;
+  margin: 0 !important;
 }
 
 .settings__winning-text {
   display: none;
   color: var(--purple-color);
   animation: blinker 1s linear infinite;
-  margin-top: 40px;
+  margin-top: 60px;
 }

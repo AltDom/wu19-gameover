@@ -24,7 +24,7 @@ class Curve {
         (player) => player.id === currentPlayers[0].id
       );
       winningPlayer.score++;
-      gameOver = true;
+      roundOver = true;
       return;
     }
 

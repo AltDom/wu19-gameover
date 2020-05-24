@@ -24,7 +24,7 @@ let arrayToBeSorted = [];
 
 const initialiseVariables = () => {
   curveCount = 0;
-  roundOver = false;
+  gameOver = false;
   currentPlayers = [];
   curves = [];
   playerBtns.forEach((btn) => {
@@ -47,7 +47,7 @@ const resetGame = () => {
 };
 
 const startGame = () => {
-  gameOver = false;
+  roundOver = false;
   resetGame();
   spaceBarText.style.visibility = "hidden";
   isFirstInitialise = false;
@@ -156,7 +156,7 @@ const updateScoreBoard = () => {
   arrayToBeSorted = [];
 
   if (gameIsFinished()) {
-    roundOver = true;
+    gameOver = true;
     celebrateWinner(winningPlayer);
   }
 };
@@ -180,7 +180,7 @@ const celebrateWinner = (winningPlayer) => {
 };
 
 const activateSpaceBar = (e) => {
-  if (e.keyCode === 32 && gameOver && isReset && !roundOver) {
+  if (e.keyCode === 32 && roundOver && isReset && !gameOver) {
     startGame();
   }
 };
@@ -196,7 +196,7 @@ const newGame = () => {
   victoryMessage.style.display = "none";
   spaceBarText.style.visibility = "visible";
   isFirstInitialise = true;
-  gameOver = true;
+  roundOver = true;
   notSure();
 };
 
@@ -224,7 +224,7 @@ const restartGame = () => {
   scores.forEach((score) => (score.textContent = 0));
   spaceBarText.style.visibility = "visible";
   isFirstInitialise = true;
-  gameOver = true;
+  roundOver = true;
   notSure();
 };
 
