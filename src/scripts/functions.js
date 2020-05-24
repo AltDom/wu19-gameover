@@ -81,17 +81,20 @@ const choosePlayers = (e) => {
   for (let i = 1; i <= playerNumbers; i++) {
     const input = `
       <input type="text" class="player-form__player${i}"
-      placeholder="Player ${i}" autocomplete="off" >
+      placeholder="Player ${i}"
+      autocomplete="off"
+      maxlength="7">
       `;
     playerForm.innerHTML += input;
   }
-  const numberRoundsInput = `
+  const numberRoundsHTML = `
     <p>First to reach
       <input type="text" class="player-form__rounds"
-      value="10" autocomplete="off">
+      value="10" autocomplete="off"
+      maxlength="3">
     rounds</p>
   `;
-  playerForm.innerHTML += numberRoundsInput;
+  playerForm.innerHTML += numberRoundsHTML;
 
   numberRounds = document.querySelector(".player-form__rounds");
   numberRounds.addEventListener("click", (e) => (e.target.value = ""));
@@ -100,8 +103,17 @@ const choosePlayers = (e) => {
 
 const createStartButton = () => {
   inputEls = playerForm.querySelectorAll("input");
+  inputEls[0].focus();
   inputElsArray = Array.from(inputEls);
-  inputElsArray.pop();
+  const numberRoundsInput = inputElsArray.pop();
+
+  numberRoundsInput.addEventListener("keyup", (e) => {
+    const isValidNumber =
+      Number(e.target.value) && parseInt(e.target.value) > 0;
+    if (!isValidNumber) {
+      numberRoundsInput.value = "";
+    }
+  });
 
   inputEls.forEach((input) => {
     input.addEventListener("keyup", () => {
@@ -122,9 +134,17 @@ const createStartButton = () => {
 const createScoreBoard = (e) => {
   e.preventDefault();
   inputElsArray.forEach((input, i) => {
-    const p = `<p class="score-board__player${i + 1}">${
-      input.value
-    }: <span>0</span></p>`;
+    const p = `
+    <p class="score-board__player${i + 1}">
+    <span class="steering-span">
+    LEFT: ${players[i].leftKey.char}
+    RIGHT:
+   ${players[i].rightKey.char}
+    </span>
+    <span>${input.value}:
+    <span class="score-span">0</span></span>
+    </p>
+    `;
     scoreBoard.innerHTML += p;
     players[i].playerName = input.value;
   });
@@ -138,27 +158,29 @@ const createScoreBoard = (e) => {
 
 const updateScoreBoard = () => {
   const playerScoreSpan = document.querySelector(
-    `.score-board__player${winningPlayer.id} span`
+    `.score-board__player${winningPlayer.id} .score-span`
   );
   playerScoreSpan.textContent = winningPlayer.score;
-
-  [].slice.call(scoreBoard.querySelectorAll('p')).forEach(p => {
-    const playerScore = p.querySelector('span').textContent;
-    arrayToBeSorted.push(`${playerScore} ${p.outerHTML}`);
-  });
-  scoreBoard.innerHTML = "";
-
-  const sortedArray = arrayToBeSorted.sort();
-  for (let i = sortedArray.length-1; i >= 0 ; i--) {
-    const p = [sortedArray[i].split(" ")[1],sortedArray[i].split(" ")[2],sortedArray[i].split(" ")[3]].join(" ");
-    scoreBoard.innerHTML += p;
-  }
-  arrayToBeSorted = [];
-
+  sortScoreBoard();
   if (gameIsFinished()) {
     gameOver = true;
     celebrateWinner(winningPlayer);
   }
+};
+
+const sortScoreBoard = () => {
+  [].slice.call(scoreBoard.querySelectorAll("p")).forEach((p) => {
+    const playerScore = p.querySelector(".score-span").textContent;
+    arrayToBeSorted.push(`${playerScore}+${p.outerHTML}`);
+  });
+  scoreBoard.innerHTML = "";
+
+  const sortedArray = arrayToBeSorted.sort();
+  for (let i = sortedArray.length - 1; i >= 0; i--) {
+    const p = sortedArray[i].split("+")[1];
+    scoreBoard.innerHTML += p;
+  }
+  arrayToBeSorted = [];
 };
 
 const gameIsFinished = () => {
@@ -220,7 +242,7 @@ const restartGame = () => {
   resetGame();
   players.forEach((player) => (player.score = 0));
   victoryMessage.style.display = "none";
-  const scores = scoreBoard.querySelectorAll("span");
+  const scores = scoreBoard.querySelectorAll(".score-span");
   scores.forEach((score) => (score.textContent = 0));
   spaceBarText.style.visibility = "visible";
   isFirstInitialise = true;
