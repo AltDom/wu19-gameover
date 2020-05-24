@@ -20,9 +20,11 @@ const winLimit = document.querySelector(".objectives__win-limit span");
 let inputEls, winningPlayer, numberRounds;
 let inputElsArray = [];
 let currentPlayers = [];
+let arrayToBeSorted = [];
 
 const initialiseVariables = () => {
   curveCount = 0;
+  gameOver = false;
   currentPlayers = [];
   curves = [];
   playerBtns.forEach((btn) => {
@@ -45,7 +47,7 @@ const resetGame = () => {
 };
 
 const startGame = () => {
-  gameOver = false;
+  roundOver = false;
   resetGame();
   spaceBarText.style.visibility = "hidden";
   isFirstInitialise = false;
@@ -139,7 +141,22 @@ const updateScoreBoard = () => {
     `.score-board__player${winningPlayer.id} span`
   );
   playerScoreSpan.textContent = winningPlayer.score;
+
+  [].slice.call(scoreBoard.querySelectorAll('p')).forEach(p => {
+    const playerScore = p.querySelector('span').textContent;
+    arrayToBeSorted.push(`${playerScore} ${p.outerHTML}`);
+  });
+  scoreBoard.innerHTML = "";
+
+  const sortedArray = arrayToBeSorted.sort();
+  for (let i = sortedArray.length-1; i >= 0 ; i--) {
+    const p = [sortedArray[i].split(" ")[1],sortedArray[i].split(" ")[2],sortedArray[i].split(" ")[3]].join(" ");
+    scoreBoard.innerHTML += p;
+  }
+  arrayToBeSorted = [];
+
   if (gameIsFinished()) {
+    gameOver = true;
     celebrateWinner(winningPlayer);
   }
 };
@@ -163,7 +180,7 @@ const celebrateWinner = (winningPlayer) => {
 };
 
 const activateSpaceBar = (e) => {
-  if (e.keyCode === 32 && gameOver && isReset) {
+  if (e.keyCode === 32 && roundOver && isReset && !gameOver) {
     startGame();
   }
 };
@@ -179,7 +196,7 @@ const newGame = () => {
   victoryMessage.style.display = "none";
   spaceBarText.style.visibility = "visible";
   isFirstInitialise = true;
-  gameOver = true;
+  roundOver = true;
   notSure();
 };
 
@@ -207,7 +224,7 @@ const restartGame = () => {
   scores.forEach((score) => (score.textContent = 0));
   spaceBarText.style.visibility = "visible";
   isFirstInitialise = true;
-  gameOver = true;
+  roundOver = true;
   notSure();
 };
 

@@ -6,7 +6,8 @@ const height = 700;
 let curveCount = 0;
 let curveSectionLength = 100;
 let holeLength = 8;
-let gameOver = true;
+let gameOver = false;
+let roundOver = true;
 let isFirstInitialise = true;
 let isReset = false;
 
