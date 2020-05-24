@@ -19,8 +19,8 @@ const players = [
     playerName: "",
     startingX: width / 4,
     startingY: height / 4,
-    leftKey: 65,
-    rightKey: 83,
+    leftKey: { key: 49, char: "1" },
+    rightKey: { key: 81, char: "q" },
   },
   {
     id: 2,
@@ -29,8 +29,8 @@ const players = [
     playerName: "",
     startingX: (3 * width) / 4,
     startingY: height / 4,
-    leftKey: 37,
-    rightKey: 39,
+    leftKey: { key: 52, char: "4" },
+    rightKey: { key: 82, char: "r" },
   },
   {
     id: 3,
@@ -39,8 +39,8 @@ const players = [
     playerName: "",
     startingX: width / 4,
     startingY: (3 * height) / 4,
-    leftKey: 70,
-    rightKey: 71,
+    leftKey: { key: 55, char: "7" },
+    rightKey: { key: 85, char: "u" },
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const players = [
     playerName: "",
     startingX: (3 * width) / 4,
     startingY: (3 * height) / 4,
-    leftKey: 74,
-    rightKey: 75,
+    leftKey: { key: 48, char: "0" },
+    rightKey: { key: 80, char: "p" },
   },
 ];

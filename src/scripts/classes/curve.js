@@ -60,11 +60,11 @@ class Curve {
     if (this.stopCurve) {
       return;
     }
-    if (keyIsDown(this.leftKey) && keyIsDown(this.rightKey)) {
+    if (keyIsDown(this.leftKey.key) && keyIsDown(this.rightKey.key)) {
       this.angle = this.angle + 0;
-    } else if (keyIsDown(this.leftKey)) {
+    } else if (keyIsDown(this.leftKey.key)) {
       this.angle = this.angle + (2 * Math.PI) / 90;
-    } else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey.key)) {
       this.angle = this.angle + (-2 * Math.PI) / 90;
     } else {
       this.angle = this.angle + 0;
