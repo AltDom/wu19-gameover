@@ -1,10 +1,10 @@
 # Snake Pit
 
-<p align="center">
-  <img  src="https://media.giphy.com/media/3o6MbnbZOYcOb3VSHS/giphy.gif" width="80%">
-</p>
-
 This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtung, die Kurve!](https://en.wikipedia.org/wiki/Achtung,_die_Kurve!) It was built using third-party WebGL framework [p5.js](https://p5js.org/), (vanilla) JavaScript, CSS and HTML. All of the code in this project was developed together by Jesper Lundqvist and Dominic Kersch using either Discord screen-sharing or pair programming methods.
+
+## Auhtors
+* [Dominic Kersch](https://github.com/AltDom)
+* [Jesper Lundqvist](https://github.com/jesperlndqvst)
 
 ## About This Project
 * Snake Pit is a multiplayer snake game which supports 2-4 players. 
@@ -15,6 +15,11 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 
 ## Play Online 
 * You can play online at [Netlify](http://snake-pit.netlify.com).
+
+## Preview
+
+<img src="https://i.imgur.com/TRtnKFR.png">
+<img src="https://i.imgur.com/ukxHNHh.png">
 
 ## Clone the Project Files
 * Clone the repository using `git clone https://github.com/AltDom/wu19-gameover.git` in your chosen bash terminal.
@@ -27,8 +32,8 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 ## Game Testers
 * Group 04 - Andreas Lindberg and Viktor Sjöblom
 * Group ?? - ?? and ??
-* ??
-* ??
+* Annie Neikter
+* Erik Johansson
 * Jack Norris
 * Luke Rodely
 
