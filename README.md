@@ -1,5 +1,5 @@
 # Snake Pit 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AltDom/wu19-gameover/LICENSE) [![Netlify Status](https://api.netlify.com/api/v1/badges/c23cfb71-0d44-499a-9c12-7cca55ac8b1c/deploy-status)](https://app.netlify.com/sites/snake-pit/deploys) 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c23cfb71-0d44-499a-9c12-7cca55ac8b1c/deploy-status)](https://app.netlify.com/sites/snake-pit/deploys) 
 
 This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtung, die Kurve!](https://en.wikipedia.org/wiki/Achtung,_die_Kurve!) It was built using third-party WebGL framework [p5.js](https://p5js.org/), (vanilla) JavaScript, CSS and HTML. All of the code in this project was developed together by Jesper Lundqvist and Dominic Kersch using either Discord screen-sharing or pair programming methods.
 
@@ -28,7 +28,8 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 * Run the project in your default editor using the command `code .`.
 * Go live in your chosen browser.
 
-<details><summary>Pull Request Log</summary>
+## Pull Request Log
+<details><summary>Click to expand</summary>
   <a href="https://github.com/AltDom/wu19-gameover/pull/1" >#1 - Create initial curve class</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/2" >#2 - Add logic for making a trail</a><br>   
   <a href="https://github.com/AltDom/wu19-gameover/pull/3" >#3 - Remove canvas refresh and show()</a><br>   
@@ -73,7 +74,8 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 * Jack Norris
 * Luke Rodely
 
-<details><summary>Code Review by Emelie Petersson and Oskar Turesson</summary>
+## Code Review by Emelie Petersson and Oskar Turesson
+<details><summary>Click to expand</summary>
 <ul>
 <li>Overall - Clear naming of functions, makes the code easy to read</li>
 
