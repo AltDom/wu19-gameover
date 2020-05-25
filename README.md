@@ -39,5 +39,25 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 
 ## Code Review by Emelie Petersson and Oskar Turesson
 
+Overall - Clear naming of functions, makes the code easy to read
+
+Overall - Consistent alignment and easy to see start and ending point of code blocks
+
+curve.js 43: "this.x + this.increment * Math.sin(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand.
+
+curve.js 50: "this.y + this.increment * Math.cos(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand.
+
+functions.js - Keep all variables in data.js to keep functions.js shorter
+
+functions.js - Consider adding some comments to make it clear where and when function is used. Also good to describe what a function does
+
+functions.js:31-34 / 74-79 - Try keep styling in separate css-files and add it with classes instead of directly in the js-file
+
+functions.js:108 - Try using more descriptive variable names instead of ex. inputEls use playerNamesInput to make it a bit more understandable”
+
+functions.js:113-119 - Consider adding a check for how big the e.target.value is, now you can just change the html so you can play infinite amount of rounds instead of your html limit of 999
+
+functions.js:123 - Consider adding a check so the player can’t be named ” ”, easy to do with a trim to the currentValue.value
+
 ## License
 This assignment is licensed under the MIT License. You can get all the details [here](https://github.com/AltDom/wu19-gameover/public/LICENSE). 
