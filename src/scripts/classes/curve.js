@@ -5,7 +5,7 @@ class Curve {
     this.id = id;
     this.x = startingX;
     this.y = startingY;
-    this.increment = 3.4;
+    this.increment = 3.8;
     this.angle = (Math.floor(Math.random() * 8 + 1) * Math.PI) / 4;
     this.color = color;
     this.leftKey = leftKey;
@@ -77,7 +77,6 @@ class Curve {
     }
 
     const currentPositionColor = get(this.x, this.y);
-
     if (
       currentPositionColor[0] > 10 ||
       currentPositionColor[1] > 10 ||
