@@ -2,7 +2,7 @@
 
 This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtung, die Kurve!](https://en.wikipedia.org/wiki/Achtung,_die_Kurve!) It was built using third-party WebGL framework [p5.js](https://p5js.org/), (vanilla) JavaScript, CSS and HTML. All of the code in this project was developed together by Jesper Lundqvist and Dominic Kersch using either Discord screen-sharing or pair programming methods.
 
-## Auhtors
+## Authors
 * [Dominic Kersch](https://github.com/AltDom)
 * [Jesper Lundqvist](https://github.com/jesperlndqvst)
 
@@ -30,8 +30,8 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 ## Pull Request Log
 
 ## Game Testers
+* Group 03 - Betsy Alva Soplin and Viktor Puke
 * Group 04 - Andreas Lindberg and Viktor Sjöblom
-* Group ?? - ?? and ??
 * Annie Neikter
 * Erik Johansson
 * Jack Norris
@@ -40,4 +40,4 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 ## Code Review by Emelie Petersson and Oskar Turesson
 
 ## License
-This assignment is licensed under the MIT License. You can get all the details [here](https://github.com/AltDom/wu19-gameover/public/LICENSE). 
+This assignment is licensed under the MIT License. You can get all the details [here](https://github.com/AltDom/wu19-gameover/LICENSE). 
