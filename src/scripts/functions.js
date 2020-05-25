@@ -1,6 +1,7 @@
 "use strict";
 
 const btnNewGame = document.querySelector(".btn--new-game");
+const snakeImg = document.querySelector(".snake-img");
 const gameBtns = document.querySelector(".game-btns");
 const btnRestart = document.querySelector(".btn--restart");
 const btnYes = document.querySelector(".btn--yes");
@@ -17,7 +18,7 @@ const objectivesDiv = document.querySelector(".objectives");
 const startScreen = document.querySelector(".start-screen");
 const gameScreen = document.getElementById("game-screen");
 const winLimit = document.querySelector(".objectives__win-limit span");
-let inputEls, winningPlayer, numberRounds;
+let inputEls, winningPlayer, numberRounds, numberRoundsInput;
 let inputElsArray = [];
 let currentPlayers = [];
 let arrayToBeSorted = [];
@@ -68,11 +69,13 @@ const createCurve = () => {
 };
 
 const choosePlayers = (e) => {
+  snakeImg.style.display = "none";
+
   playerBtns.forEach((btn) => {
     btn.style.background = "#fff";
     btn.style.color = "#000";
   });
-  e.target.style.background = "#ce17f3";
+  e.target.style.background = "#757575";
   e.target.style.color = "#fff";
 
   playerForm.innerHTML = "";
@@ -91,7 +94,7 @@ const choosePlayers = (e) => {
     <p>First to reach
       <input type="text" class="player-form__rounds"
       value="10" autocomplete="off"
-      maxlength="3">
+      maxlength="3" >
     rounds</p>
   `;
   playerForm.innerHTML += numberRoundsHTML;
@@ -105,7 +108,7 @@ const createStartButton = () => {
   inputEls = playerForm.querySelectorAll("input");
   inputEls[0].focus();
   inputElsArray = Array.from(inputEls);
-  const numberRoundsInput = inputElsArray.pop();
+  numberRoundsInput = inputElsArray.pop();
 
   numberRoundsInput.addEventListener("keyup", (e) => {
     const isValidNumber =
@@ -133,6 +136,12 @@ const createStartButton = () => {
 
 const createScoreBoard = (e) => {
   e.preventDefault();
+  if (numberRoundsInput.value === "") {
+    numberRoundsInput.focus();
+    return;
+  }
+  players[inputElsArray.length-1].leftKey = { key: 37, char: "<" };
+  players[inputElsArray.length-1].rightKey = { key: 39, char: ">" };
   inputElsArray.forEach((input, i) => {
     const p = `
     <p class="score-board__player${i + 1}">
@@ -207,11 +216,22 @@ const activateSpaceBar = (e) => {
   }
 };
 
+const resetPlayersArray = () => {
+  players.forEach((player) => (player.score = 0));
+  players[1].leftKey = { key: 52, char: "4" };
+  players[1].rightKey = { key: 82, char: "r" };
+  players[2].leftKey = { key: 55, char: "7" };
+  players[2].rightKey = { key: 85, char: "u" };
+  players[3].leftKey = { key: 48, char: "0" };
+  players[3].rightKey = { key: 80, char: "p" };
+}
+
 const newGame = () => {
   initialiseVariables();
+  resetPlayersArray();
+  snakeImg.style.display = "block";
   playerForm.innerHTML = "";
   scoreBoard.innerHTML = "";
-  players.forEach((player) => (player.score = 0));
   startScreen.style.display = "flex";
   heading.style.display = "flex";
   gameScreen.style.display = "none";

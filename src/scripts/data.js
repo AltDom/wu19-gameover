@@ -19,8 +19,8 @@ const players = [
     playerName: "",
     startingX: width / 4,
     startingY: height / 4,
-    leftKey: { key: 49, char: "1" },
-    rightKey: { key: 81, char: "q" },
+    leftKey: { key: 65, char: "a" },
+    rightKey: { key: 83, char: "s" },
   },
   {
     id: 2,
