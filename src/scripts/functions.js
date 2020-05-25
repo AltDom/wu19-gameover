@@ -34,7 +34,7 @@ const initialiseVariables = () => {
   });
   const canvas = createCanvas(width, height);
   canvas.parent("game-screen");
-  frameRate(48);
+  frameRate(46);
   createCurve();
 };
 
