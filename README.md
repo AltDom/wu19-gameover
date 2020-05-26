@@ -63,7 +63,9 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
   <a href="https://github.com/AltDom/wu19-gameover/pull/31" >#31 - Update README.md</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/32" >#32 - Code review by Group 11</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/33" >#33 - Fix Chrome and Firefox rendering faults</a><br> 
-  <a href="https://github.com/AltDom/wu19-gameover/pull/34" >#34 - Pull request log :)</a>
+  <a href="https://github.com/AltDom/wu19-gameover/pull/34" >#34 - Pull request log :)</a><br>
+  <a href="https://github.com/AltDom/wu19-gameover/pull/35" >#35 - Address comments from code review and rename variables</a>
+  
 </details>
 
 ## Game Testers
