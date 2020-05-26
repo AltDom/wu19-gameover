@@ -18,16 +18,12 @@ const objectivesDiv = document.querySelector(".objectives");
 const startScreen = document.querySelector(".start-screen");
 const gameScreen = document.getElementById("game-screen");
 const winLimit = document.querySelector(".objectives__win-limit span");
-let inputEls, winningPlayer, numberRounds, numberRoundsInput;
-let inputElsArray = [];
-let currentPlayers = [];
-let arrayToBeSorted = [];
 
 const initialiseVariables = () => {
-  curveCount = 0;
+  snakePointCount = 0;
   gameOver = false;
   currentPlayers = [];
-  curves = [];
+  snakes = [];
   playerBtns.forEach((btn) => {
     btn.style.background = "#FFF";
     btn.style.color = "#000";
@@ -35,7 +31,7 @@ const initialiseVariables = () => {
   const canvas = createCanvas(width, height);
   canvas.parent("game-screen");
   frameRate(46);
-  createCurve();
+  createSnake();
 };
 
 const resetGame = () => {
@@ -55,9 +51,9 @@ const startGame = () => {
   loop();
 };
 
-const createCurve = () => {
+const createSnake = () => {
   for (let i = 0; i < inputElsArray.length; i++) {
-    curves[i] = new Curve(
+    snakes[i] = new Snake(
       players[i].color,
       players[i].startingX,
       players[i].startingY,
@@ -159,7 +155,7 @@ const createScoreBoard = (e) => {
   });
 
   winLimit.textContent = `${numberRounds.value}`;
-  resetGame(); // Initialises chosen number of curves onto the gameboard
+  resetGame(); // Initialises chosen number of snakes onto the gameboard
   startScreen.style.display = "none";
   heading.style.display = "none";
   gameScreen.style.display = "flex";

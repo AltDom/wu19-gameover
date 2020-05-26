@@ -1,15 +1,19 @@
 "use strict";
 
-let curves = [];
 const width = 700;
 const height = 700;
-let curveCount = 0;
-let curveSectionLength = 100;
+let inputEls, winningPlayer, numberRounds, numberRoundsInput;
+let snakes = [];
+let inputElsArray = [];
+let currentPlayers = [];
+let arrayToBeSorted = [];
+let snakePointCount = 0;
+let snakeSectionLength = 100;
 let holeLength = 8;
 let gameOver = false;
+let isReset = false;
 let roundOver = true;
 let isFirstInitialise = true;
-let isReset = false;
 
 const players = [
   {

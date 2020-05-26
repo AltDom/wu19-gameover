@@ -15,12 +15,12 @@ function draw() {
     return;
   }
 
-  curveCount++;
-  curves.forEach((curve) => {
-    curve.update();
-    curve.steering();
-    if (curveCount < curveSectionLength) {
-      curve.collision();
+  snakePointCount++;
+  snakes.forEach((snake) => {
+    snake.update();
+    snake.steering();
+    if (snakePointCount < snakeSectionLength) {
+      snake.collision();
     }
   });
 }
