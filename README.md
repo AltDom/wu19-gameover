@@ -30,20 +30,20 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 
 ## Pull Request Log
 <details><summary>Click to expand</summary>
-  <a href="https://github.com/AltDom/wu19-gameover/pull/1" >#1 - Create initial curve class</a><br> 
+  <a href="https://github.com/AltDom/wu19-gameover/pull/1" >#1 - Create initial snake class</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/2" >#2 - Add logic for making a trail</a><br>   
   <a href="https://github.com/AltDom/wu19-gameover/pull/3" >#3 - Remove canvas refresh and show()</a><br>   
   <a href="https://github.com/AltDom/wu19-gameover/pull/4" >#4 - Add function to track collisions</a><br>   
   <a href="https://github.com/AltDom/wu19-gameover/pull/5" >#5 - Refactor the code structure</a><br> 
-  <a href="https://github.com/AltDom/wu19-gameover/pull/6" >#6 - Code steering and dual curve collision</a><br> 
+  <a href="https://github.com/AltDom/wu19-gameover/pull/6" >#6 - Code steering and dual snake collision</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/7" >#7 - Create object for players data and add four player support</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/8" >#8 - Randomise start direction and loop boundaries</a><br> 
-  <a href="https://github.com/AltDom/wu19-gameover/pull/9" >#9 - Add logic for creating holes in the curve</a><br> 
-  <a href="https://github.com/AltDom/wu19-gameover/pull/10" >#10 - Game over individual curves and global boundaries</a><br> 
+  <a href="https://github.com/AltDom/wu19-gameover/pull/9" >#9 - Add logic for creating holes in the snake</a><br> 
+  <a href="https://github.com/AltDom/wu19-gameover/pull/10" >#10 - Game over individual snakes and global boundaries</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/11" >#11 - Number players select, background and css file</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/12" >#12 - Stop game and p5 draw() loop with global game over</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/13" >#13 - Add logic for restarting the game</a><br> 
-  <a href="https://github.com/AltDom/wu19-gameover/pull/14" >#14 - Determine the winning curve</a><br> 
+  <a href="https://github.com/AltDom/wu19-gameover/pull/14" >#14 - Determine the winning snake</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/15" >#15 - Build scoreboard logic</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/16" >#16 - Create LICENSE file</a><br> 
   <a href="https://github.com/AltDom/wu19-gameover/pull/17" >#17 - Create initial styling</a><br> 
@@ -81,9 +81,9 @@ This is a desktop game called **Snake Pit** inspired by the 1995 classic [Achtun
 
 <li>Overall - Consistent alignment and easy to see start and ending point of code blocks</li>
 
-<li>curve.js 43: "this.x + this.increment * Math.sin(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand</li>
+<li>Snake.js 43: "this.x + this.increment * Math.sin(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand</li>
 
-<li>curve.js 50: "this.y + this.increment * Math.cos(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand</li>
+<li>Snake.js 50: "this.y + this.increment * Math.cos(this.angle)" is repeated three times, consider storing it in a variable to shorten the code and make it easier to understand</li>
 
 <li>functions.js - Keep all variables in data.js to keep functions.js shorter</li>
 

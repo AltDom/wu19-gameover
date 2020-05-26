@@ -7,8 +7,6 @@ class Snake {
     this.x = startingX;
     this.y = startingY;
     this.angle = (Math.floor(Math.random() * 8 + 1) * Math.PI) / 4;
-    this.nextX = this.x + this.increment * Math.sin(this.angle);
-    this.nextY = this.y + this.increment * Math.cos(this.angle);
     this.color = color;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
@@ -42,19 +40,21 @@ class Snake {
     }
 
     // Set snake position
-    if (this.nextX > width) {
+    const nextX = this.x + this.increment * Math.sin(this.angle);
+    const nextY = this.y + this.increment * Math.cos(this.angle);
+    if (nextX > width) {
       this.x = 0;
-    } else if (this.nextX < 0) {
+    } else if (nextX < 0) {
       this.x = width;
     } else {
-      this.x = this.nextX;
+      this.x = nextX;
     }
-    if (this.nextY > height) {
+    if (nextY > height) {
       this.y = 0;
-    } else if (this.nextY < 0) {
+    } else if (nextY < 0) {
       this.y = height;
     } else {
-      this.y = this.nextY;
+      this.y = nextY;
     }
   }
 
