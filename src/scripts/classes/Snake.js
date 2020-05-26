@@ -1,24 +1,24 @@
 "use strict";
 
-class Curve {
+class Snake {
   constructor(color, startingX, startingY, leftKey, rightKey, id) {
     this.id = id;
+    this.increment = 3.8;
     this.x = startingX;
     this.y = startingY;
-    this.increment = 3.8;
     this.angle = (Math.floor(Math.random() * 8 + 1) * Math.PI) / 4;
     this.color = color;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
-    this.stopCurve = false;
+    this.stopSnake = false;
   }
 
   update() {
-    // Check if curve has game over
-    if (this.stopCurve) {
+    // Check if snake has game over
+    if (this.stopSnake) {
       return;
     }
-    // Check if curve has game over
+    // Check if snake has game over
     if (currentPlayers.length === 1) {
       winningPlayer = players.find(
         (player) => player.id === currentPlayers[0].id
@@ -28,36 +28,38 @@ class Curve {
       return;
     }
 
-    // Print the curve and make holes
-    if (curveCount < curveSectionLength) {
+    // Print the snake and make holes
+    if (snakePointCount < snakeSectionLength) {
       let c = color(this.color);
       fill(c);
       noStroke();
       circle(this.x, this.y, 5);
     }
-    if (curveCount === curveSectionLength + holeLength) {
-      curveCount = 0;
+    if (snakePointCount === snakeSectionLength + holeLength) {
+      snakePointCount = 0;
     }
 
-    // Set curve position
-    if (this.x + this.increment * Math.sin(this.angle) > width) {
+    // Set snake position
+    const nextX = this.x + this.increment * Math.sin(this.angle);
+    const nextY = this.y + this.increment * Math.cos(this.angle);
+    if (nextX > width) {
       this.x = 0;
-    } else if (this.x + this.increment * Math.sin(this.angle) < 0) {
+    } else if (nextX < 0) {
       this.x = width;
     } else {
-      this.x = this.x + this.increment * Math.sin(this.angle);
+      this.x = nextX;
     }
-    if (this.y + this.increment * Math.cos(this.angle) > height) {
+    if (nextY > height) {
       this.y = 0;
-    } else if (this.y + this.increment * Math.cos(this.angle) < 0) {
+    } else if (nextY < 0) {
       this.y = height;
     } else {
-      this.y = this.y + this.increment * Math.cos(this.angle);
+      this.y = nextY;
     }
   }
 
   steering() {
-    if (this.stopCurve) {
+    if (this.stopSnake) {
       return;
     }
     if (keyIsDown(this.leftKey.key) && keyIsDown(this.rightKey.key)) {
@@ -72,7 +74,7 @@ class Curve {
   }
 
   collision() {
-    if (this.stopCurve) {
+    if (this.stopSnake) {
       return;
     }
 
@@ -82,7 +84,7 @@ class Curve {
       currentPositionColor[1] > 10 ||
       currentPositionColor[2] > 10
     ) {
-      this.stopCurve = true;
+      this.stopSnake = true;
       currentPlayers = currentPlayers.filter((player) => player.id !== this.id);
     }
   }
