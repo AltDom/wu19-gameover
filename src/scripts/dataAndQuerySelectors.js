@@ -57,3 +57,23 @@ const players = [
     rightKey: { key: 80, char: "p" },
   },
 ];
+
+// Query selectors used globally throughout game functions
+const btnNewGame = document.querySelector(".btn--new-game");
+const snakeImg = document.querySelector(".snake-img");
+const gameBtns = document.querySelector(".game-btns");
+const btnRestart = document.querySelector(".btn--restart");
+const btnYes = document.querySelector(".btn--yes");
+const btnNo = document.querySelector(".btn--no");
+const victoryMessage = document.querySelector(".settings__winning-text");
+const areYouSureBox = document.querySelector(".are-you-sure");
+const settingsContainer = document.querySelector(".settings");
+const heading = document.querySelector(".heading");
+const playerBtns = document.querySelectorAll(".player-btns");
+const playerForm = document.querySelector(".player-form");
+const scoreBoard = document.querySelector(".score-board");
+const spaceBarText = document.querySelector(".objectives__space-bar");
+const objectivesDiv = document.querySelector(".objectives");
+const startScreen = document.querySelector(".start-screen");
+const gameScreen = document.getElementById("game-screen");
+const winLimit = document.querySelector(".objectives__win-limit span");
